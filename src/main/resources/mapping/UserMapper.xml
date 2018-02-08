@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehe.mapper.UserMapper">
+
+<!-- MAP与类映射 -->
+  <resultMap id="userResultMap" type="com.hehe.entity.User">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="PHONE_NUM" jdbcType="VARCHAR" property="mobileNum" />
+  </resultMap>
+  
+    <!-- 这个方法是我自己加的 -->
+    <!-- resultType="com.hehe.entity.User -->
+  <select id="selectAllUser" resultMap="userResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+  </select>
+  
+  <!-- 通过SQL的字段重命名去映射实体  resultType com.hehe.entity.User-->
+  <sql id="Base_Column_List">
+    USER_ID, USERNAME, PASSWORD, PHONE_NUM
+  </sql>
+  
+   <!-- 这个方法是我自己加的 -->
+  <select id="selectAllUserEntity" resultType="com.hehe.entity.User">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+  </select>
+
+</mapper>
