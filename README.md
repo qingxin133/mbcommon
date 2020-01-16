@@ -1,2 +1,3 @@
 # mbcommon
 springboot和tkmybatis集成 封装了通用的service和impl 继承后简化单个实体数据库操作
+此项目不再更新，已经整合到新的platform-parent项目当中,可以查看platform-parent当中的platform-db maven子项目
